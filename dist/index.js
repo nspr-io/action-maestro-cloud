@@ -47348,16 +47348,13 @@ function getParameters() {
         const mappingFile = mappingFileInput && (0, app_file_1.validateMappingFile)(mappingFileInput);
         const async = core.getInput('async', { required: false }) === 'true';
         const androidApiLevelString = core.getInput('android-api-level', {
-            required: false,
+            required: false
         });
         const iOSVersionString = core.getInput('ios-version', { required: false });
         const includeTags = parseTags(core.getInput('include-tags', { required: false }));
         const excludeTags = parseTags(core.getInput('exclude-tags', { required: false }));
         const appFilePath = core.getInput('app-file', { required: false });
         const appBinaryId = core.getInput('app-binary-id', { required: false });
-        if (!(appFilePath !== '') !== (appBinaryId !== '')) {
-            throw new Error('Either app-file or app-binary-id must be used');
-        }
         const deviceLocale = core.getInput('device-locale', { required: false });
         const timeoutString = core.getInput('timeout', { required: false });
         var env = {};
@@ -47403,7 +47400,7 @@ function getParameters() {
             appBinaryId,
             deviceLocale,
             timeout,
-            projectId,
+            projectId
         };
     });
 }
