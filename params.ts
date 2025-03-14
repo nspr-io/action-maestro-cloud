@@ -130,7 +130,7 @@ export async function getParameters(): Promise<Params> {
   const mappingFile = mappingFileInput && validateMappingFile(mappingFileInput)
   const async = core.getInput('async', { required: false }) === 'true'
   const androidApiLevelString = core.getInput('android-api-level', {
-    required: false,
+    required: false
   })
   const iOSVersionString = core.getInput('ios-version', { required: false })
   const includeTags = parseTags(
@@ -142,9 +142,6 @@ export async function getParameters(): Promise<Params> {
 
   const appFilePath = core.getInput('app-file', { required: false })
   const appBinaryId = core.getInput('app-binary-id', { required: false })
-  if (!(appFilePath !== '') !== (appBinaryId !== '')) {
-    throw new Error('Either app-file or app-binary-id must be used')
-  }
 
   const deviceLocale = core.getInput('device-locale', { required: false })
   const timeoutString = core.getInput('timeout', { required: false })
@@ -196,6 +193,6 @@ export async function getParameters(): Promise<Params> {
     appBinaryId,
     deviceLocale,
     timeout,
-    projectId,
+    projectId
   }
 }
